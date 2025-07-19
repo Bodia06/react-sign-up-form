@@ -1,0 +1,124 @@
+.signUpFormContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1.25rem;
+	padding: 1.25rem;
+	margin: 2.5rem auto;
+	max-width: 500px;
+	min-width: 320px;
+	width: 100%;
+	border-radius: 1.25rem;
+	box-shadow: 0 0 5px grey;
+}
+
+.SignUpFormTitle {
+	font-size: 1.5em;
+	font-weight: 400;
+	color: #2e7d32;
+	text-align: center;
+}
+
+.signUpForm {
+	display: flex;
+	flex-direction: column;
+	gap: 1.875rem;
+	width: 100%;
+}
+
+.signUpFormLabel {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.3125rem;
+}
+
+.signUpFormLabelName {
+	font-size: 0.9375em;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #66bb6a;
+	letter-spacing: 0.03em;
+}
+
+.signUpFormInput {
+	width: 100%;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	transition: border-color 0.3s ease;
+	outline: none;
+}
+
+.signUpFormInputValid {
+	border: 0.125rem solid #66bb6a;
+}
+
+.signUpFormInputInvalid {
+	border: 0.125rem solid #ef5350;
+}
+
+.signUpFormCheckbox {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+}
+
+.signUpFormCheckboxInput {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 1.25em;
+	height: 1.25em;
+	border: 0.125rem solid #ccc;
+	border-radius: 0.25rem;
+	background-color: #fff;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.signUpFormCheckboxInput:checked {
+	background-color: #66bb6a;
+	border-color: #66bb6a;
+}
+
+.signUpFormCheckboxInput:checked::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0.3125em;
+	height: 0.625em;
+	border: solid white;
+	border-width: 0 0.125em 0.125em 0;
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.signUpFormCheckboxName {
+	font-size: 0.875em;
+	font-weight: 300;
+	color: #444;
+}
+
+.signUpFormBtn {
+	background-color: #66bb6a;
+	color: white;
+	border: none;
+	padding: 0.75rem 1.5rem;
+	cursor: pointer;
+	font-size: 1em;
+	font-weight: 500;
+	border-radius: 0.5rem;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signUpFormBtn:hover {
+	background-color: #4caf50;
+	transform: translateY(-0.125rem);
+}
+
+.signUpFormBtn:active {
+	transform: translateY(0);
+}
