@@ -110,7 +110,7 @@ class SignUpForm extends Component {
 
 		return (
 			<div className={styles.signUpFormContainer}>
-				<h1 className={styles.SignUpFormTitle}>Create Your Account</h1>
+				<h1 className={styles.signUpFormTitle}>Create Your Account</h1>
 				<form className={styles.signUpForm} action='#'>
 					<label className={styles.signUpFormLabel}>
 						<span className={styles.signUpFormLabelName}>Full Name</span>
