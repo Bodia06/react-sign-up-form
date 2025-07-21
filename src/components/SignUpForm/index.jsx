@@ -7,6 +7,13 @@ const INITIAL_VALUES = {
 	email: '',
 	password: '',
 	confirmPassword: '',
+	validationGroup: {
+		isValidFullName: false,
+		isValidEmail: false,
+		isValidPassword: false,
+		isValidConfirmPassword: false,
+	},
+	isAgreeToTerms: false,
 }
 
 const REX_INCORRECT_VALUES = {
@@ -26,29 +33,33 @@ class SignUpForm extends Component {
 			password: INITIAL_VALUES.password,
 			confirmPassword: INITIAL_VALUES.confirmPassword,
 			validationGroup: {
-				isValidFullName: false,
-				isValidEmail: false,
-				isValidPassword: false,
-				isValidConfirmPassword: false,
+				isValidFullName: INITIAL_VALUES.isValidFullName,
+				isValidEmail: INITIAL_VALUES.isValidEmail,
+				isValidPassword: INITIAL_VALUES.isValidPassword,
+				isValidConfirmPassword: INITIAL_VALUES.isValidConfirmPassword,
 			},
-			agreeToTerms: false,
+			isAgreeToTerms: INITIAL_VALUES.agreeToTerms,
 		}
 	}
 
-	submitActionBtn = () => {
+	submitActionBtn = (e) => {
+		const { validationGroup } = this.state
+
 		const {
 			isValidFullName,
 			isValidEmail,
 			isValidPassword,
 			isValidConfirmPassword,
-		} = this.state.validationGroup
+		} = validationGroup
+
+		e.preventDefault()
 
 		if (
 			isValidFullName &&
 			isValidEmail &&
 			isValidPassword &&
 			isValidConfirmPassword &&
-			this.state.agreeToTerms
+			this.state.isAgreeToTerms
 		) {
 			alert('Form submitted successfully!')
 			this.setState(INITIAL_VALUES)
@@ -81,7 +92,7 @@ class SignUpForm extends Component {
 	}
 
 	handleCheckboxChange = (e) => {
-		this.setState({ agreeToTerms: e.target.checked })
+		this.setState({ isAgreeToTerms: e.target.checked })
 	}
 
 	render() {
@@ -157,24 +168,23 @@ class SignUpForm extends Component {
 							onChange={(e) => this.handleInputChange(e)}
 						/>
 					</label>
-					<div className={styles.signUpFormCheckbox}>
+					<label className={styles.signUpFormCheckbox}>
 						<input
 							className={styles.signUpFormCheckboxInput}
 							type='checkbox'
 							id='agreeToTermsId'
-							checked={this.state.agreeToTerms}
+							checked={this.state.isAgreeToTerms}
 							onChange={(e) => this.handleCheckboxChange(e)}
 						/>
 						<span className={styles.signUpFormCheckboxName}>
 							I agree to the Terms and Conditions
 						</span>
-					</div>
+					</label>
 					<button
 						className={styles.signUpFormBtn}
 						type='submit'
 						onClick={(e) => {
-							e.preventDefault()
-							this.submitActionBtn()
+							this.submitActionBtn(e)
 						}}
 					>
 						Sign Up
