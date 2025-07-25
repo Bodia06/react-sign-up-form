@@ -38,7 +38,7 @@ class SignUpForm extends Component {
 				isValidPassword: INITIAL_VALUES.isValidPassword,
 				isValidConfirmPassword: INITIAL_VALUES.isValidConfirmPassword,
 			},
-			isAgreeToTerms: INITIAL_VALUES.agreeToTerms,
+			isAgreeToTerms: INITIAL_VALUES.isAgreeToTerms,
 		}
 	}
 
